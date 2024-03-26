@@ -9,7 +9,14 @@
 
         <div class="container my-4">
             <div class="d-flex flex-wrap">
-                Event
+                <% events.forEach((event)=> { %>
+                    <div class="card m-3 flex-item" style="width: 18rem">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= event.title %></h5>
+                            <a href="/event/<%= event._id %>" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                    <% }) %>
             </div>
         </div>
         <%- include('./partials/scripts') %>

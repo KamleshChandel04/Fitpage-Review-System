@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('./partials/head.ejs') %>
+        <title><%= event.title %> | Review System</title>
+    </head>
+
+    <body>
+        <%- include('./partials/nav') %>
+
+        <div class="container-md my-4 mx-auto max-w-75">
+            <div class="container">
+                <p class="h1 mb-4"><%= event.title %></p>
+
+                <% if (locals.user) { %> <% if (user._id==event.createdBy._id) { %>
+                <div class="mb-4">
+                    <a class="delete" href="/event/delete/<%= event._id %>">Delete</a>
+                </div>
+                <% } %> <% } %>
+            </div>
+
+            <div class="container">
+                <p class="mt-4"><%= event.body %></p>
+            </div>
+
+            <div class="container mt-4 border-top pt-4">
+                <p class="h4">
+                    Reviews <% if (reviews.length) { %> (<%= reviews.length %>) <% } %>
+                </p>
+
+                <% if (locals.user) { %>
+                <form action="/event/review/<%= event._id %>" method="post">
+                    <div class="my-3">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="content"
+                            name="content"
+                            placeholder="Review here..." />
+                    </div>
+                    <div class="my-3">
+                        <label for="registrationRating">Registration Rating</label>
+                        <b-form-rating
+                            id="registrationRating"
+                            name="registrationRating"
+                            v-model="value"
+                            color="#ff8800"></b-form-rating>
+                    </div>
+                    <div class="my-3">
+                        <label for="eventRating">Event Rating</label>
+                        <b-form-rating
+                            id="eventRating"
+                            name="eventRating"
+                            v-model="value"
+                            color="#ff8800"></b-form-rating>
+                    </div>
+                    <div class="my-3">
+                        <label for="breakfastRating">Breakfast Rating</label>
+                        <b-form-rating
+                            id="breakfastRating"
+                            name="breakfastRating"
+                            v-model="value"
+                            color="#ff8800"></b-form-rating>
+                    </div>
+                    <div class="my-3">
+                        <label for="overallRating">Overall Rating</label>
+                        <b-form-rating
+                            id="overallRating"
+                            name="overallRating"
+                            v-model="value"
+                            color="#ff8800"></b-form-rating>
+                    </div>
+                    <button type="submit" class="btn btn-sm btn-primary">Post</button>
+                </form>
+                <% } else { %>
+                <p class="h4">SignIn To Write Your Review...</p>
+                <% } %>
+                <div class="mt-4">
+                    <% reviews.forEach((review)=> { %>
+                    <div class="mb-3 d-flex flex-row">
+                        <span class="ps-3">
+                            <p class="mb-0"><strong> <%= review.createdBy.fullName %> </strong></p>
+                            <p class="mb-0"><%= review.content %></p>
+                        </span>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        
+        <%- include('./partials/scripts') %>
+    </body>
+</html>
