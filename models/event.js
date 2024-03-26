@@ -4,11 +4,11 @@ const eventSchema = new Schema(
     {
         title: {
             type: String,
-            required: true,
+            required: true ,
         },
         body: {
             type: String,
-            required: true,
+            required: true ,
         },
         createdBy: {
             type: Schema.Types.ObjectId,

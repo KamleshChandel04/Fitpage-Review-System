@@ -8,7 +8,6 @@ const reviewSchema = new Schema(
         },
         content: {
             type: String,
-            required: true,
         },
         registrationRating: {
             type: Number,
@@ -21,6 +20,7 @@ const reviewSchema = new Schema(
         },
         overallRating: {
             type: Number,
+            
         },
         likes: {
             type: Number,
