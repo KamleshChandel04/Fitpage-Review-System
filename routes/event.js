@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {handleCreateEvent , handleGetEvent , handleCreateReview , handleDeleteEvent , handleRegisterEvent , handleLikeReview , handleReportReview} = require('../controllers/event');
+const {handleCreateEvent , handleGetEvent , handleCreateReview , handleDeleteEvent , handleRegisterEvent , handleLikeReview , handleReportReview , handleResponseReview} = require('../controllers/event');
 
 router.get("/add-new", (req, res) => {
     return res.render("addEvent", {
@@ -17,6 +17,7 @@ router.get("/delete/:id", handleDeleteEvent);
 router.post('/review/:eventId' , handleCreateReview);
 router.get('/review/like/:id' , handleLikeReview);
 router.get('/review/report/:id' , handleReportReview);
+router.post('/review/response/:id' , handleResponseReview);
 
 
 module.exports = router;

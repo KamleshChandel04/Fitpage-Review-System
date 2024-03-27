@@ -73,8 +73,8 @@ const handleRegisterEvent = async (req, res) => {
 
 const handleLikeReview = async (req, res) => {
     const id = req.params.id;
-    const review = await Review.findById(id);
     try {
+        const review = await Review.findById(id);
         const index = review.likes.findIndex((id) => id === String(req.user._id));
 
         if (index === -1) {
@@ -86,15 +86,15 @@ const handleLikeReview = async (req, res) => {
         return res.status(201).redirect(`/event/${review.eventId}`);
     } catch (error) {
         console.log(error);
-        return res.status(400).redirect(`/event/${review.eventId}`);
+        return res.status(400).redirect("/");
     }
 };
 
 const handleReportReview = async (req, res) => {
     const id = req.params.id;
 
-    const review = await Review.findById(id);
     try {
+        const review = await Review.findById(id);
         const index = review.reports.findIndex((id) => id === String(req.user._id));
 
         if (index === -1) {
@@ -107,7 +107,23 @@ const handleReportReview = async (req, res) => {
         return res.status(201).redirect(`/event/${review.eventId}`);
     } catch (error) {
         console.log(error);
-        return res.status(400).redirect(`/event/${review.eventId}`);
+        return res.status(400).redirect("/");
+    }
+};
+
+const handleResponseReview = async (req, res) => {
+    const id = req.params.id;
+    
+    try {
+        const review = await Review.findById(id);
+        const {organizerResponse} = req.body;
+        review.organizerResponse.push(organizerResponse);
+        const updateReview = await Review.findByIdAndUpdate(id , review , {new : true});
+  
+        return res.status(201).redirect(`/event/${review.eventId}`);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).redirect("/");
     }
 };
 
@@ -119,4 +135,5 @@ module.exports = {
     handleRegisterEvent,
     handleLikeReview,
     handleReportReview,
+    handleResponseReview,
 };

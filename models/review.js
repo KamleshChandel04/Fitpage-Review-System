@@ -37,7 +37,8 @@ const reviewSchema = new Schema(
             default: false,
         },
         organizerResponse: {
-            type: String,
+            type: [String],
+            default : [],
         },
         createdBy: {
             type: Schema.Types.ObjectId,
