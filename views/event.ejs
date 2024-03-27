@@ -214,8 +214,11 @@
                                     <p class="mb-1">Breakfast Rating : <%= review.breakfastRating %> out of 5</p>
                                     <p class="mb-1">Overall Rating : <%= review.overallRating %> out of 5</p>
                                 </div>
+                                <% if (locals.user) { %>
+                                 
+                                
                                 <div style="display: flex; justify-content: space-around">
-                                    <% if (review.likes.includes(user?._id)) { %>
+                                    <% if ( review.likes.includes(user?._id)) { %>
                                         
                                         <a href="/event/review/like/<%= review._id %>" class="btn btn-primary btn-sm">
                                             Liked <%= review.likes?.length %>
@@ -235,7 +238,14 @@
                                         </a>
                                     <% } %>
                                 </div>
+                                <% } %>
                             </span>
+                            <% if (review.reports.length > 5) { %>
+                                <div>
+                                    <button class="btn btn-outline-danger btn-sm">Flagged</button>
+                                </div>
+                             
+                            <% } %>
                         </div>
                     <% }); %>
                 </div>
