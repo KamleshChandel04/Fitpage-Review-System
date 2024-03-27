@@ -20,7 +20,7 @@
                             style="display: flex; justify-content: space-between">
                             <% if (locals.user) { %>
                                 <% if(event.registerUser.includes(user._id)) { %>
-                                    <a href="/" class="btn btn-success">Registered</a>
+                                    <a href="/event/register/<%= event._id %>" class="btn btn-success">Registered</a>
                                 <% } else { %>
                                     <a href="/event/register/<%= event._id %>" class="btn btn-primary">Register</a>
                                 <% } %>
