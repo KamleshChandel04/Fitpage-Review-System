@@ -71,10 +71,52 @@ const handleRegisterEvent = async (req, res) => {
     }
 };
 
+const handleLikeReview = async (req, res) => {
+    const id = req.params.id;
+    const review = await Review.findById(id);
+    try {
+        const index = review.likes.findIndex((id) => id === String(req.user._id));
+
+        if (index === -1) {
+            review.likes.push(String(req.user._id));
+        } else {
+            review.likes = review.likes.filter((id) => id !== String(req.user._id));
+        }
+        const updatedReview = await Review.findByIdAndUpdate(id, review, { new: true });
+        return res.status(201).redirect(`/event/${review.eventId}`);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).redirect(`/event/${review.eventId}`);
+    }
+};
+
+const handleReportReview = async (req, res) => {
+    const id = req.params.id;
+
+    const review = await Review.findById(id);
+    try {
+        const index = review.reports.findIndex((id) => id === String(req.user._id));
+
+        if (index === -1) {
+            review.reports.push(String(req.user._id));
+        } else {
+            review.reports = review.reports.filter((id) => id !== String(req.user._id));
+        }
+        const updatedReview = await Review.findByIdAndUpdate(id, review, { new: true });
+
+        return res.status(201).redirect(`/event/${review.eventId}`);
+    } catch (error) {
+        console.log(error);
+        return res.status(400).redirect(`/event/${review.eventId}`);
+    }
+};
+
 module.exports = {
     handleCreateEvent,
     handleGetEvent,
     handleCreateReview,
     handleDeleteEvent,
     handleRegisterEvent,
+    handleLikeReview,
+    handleReportReview,
 };

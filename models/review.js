@@ -23,12 +23,14 @@ const reviewSchema = new Schema(
             
         },
         likes: {
-            type: Number,
-            default: 0,
+            type: [String],
+            default: [],
+            ref: "user",
         },
         reports: {
-            type: Number,
-            default: 0,
+            type: [String],
+            default: [],
+            ref: "user",
         },
         reported: {
             type: Boolean,
