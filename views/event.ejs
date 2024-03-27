@@ -28,7 +28,7 @@
                     Reviews <% if (reviews.length) { %> (<%= reviews.length %>) <% } %>
                 </p>
 
-                <% if (locals.user) { %>
+                <% if (event.registerUser.includes(user._id)) { %>
                 <form action="/event/review/<%= event._id %>" method="post">
                     <div class="my-3">
                         <input
@@ -195,7 +195,8 @@
                     <button type="submit" class="btn btn-sm btn-primary">Post</button>
                 </form>
                 <% } else { %>
-                <p class="h4">SignIn To Write Your Review...</p>
+                <p class="h4">Write Your Review... 
+                <small class="form-text text-muted" style="font-size:x-small">(Only Register User can Write Review)</small></p>
                 <% } %>
                 <div class="mt-4">
                     <% reviews.forEach((review)=> { %>
