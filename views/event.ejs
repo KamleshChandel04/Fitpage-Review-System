@@ -31,7 +31,7 @@
                 </p>
 
                 <% if (event.registerUser.includes(user?._id)) { %>
-                <form action="/event/review/<%= event._id %>" method="post">
+                <form action="/review/<%= event._id %>" method="post">
                     <div class="my-3">
                         <input
                             type="text"
@@ -222,20 +222,20 @@
                                    
                                     <% if ( review.likes.includes(user?._id)) { %>
                                         
-                                        <a href="/event/review/like/<%= review._id %>" class="btn btn-primary btn-sm">
+                                        <a href="/review/like/<%= review._id %>" class="btn btn-primary btn-sm">
                                             Liked <%= review.likes?.length %>
                                         </a>
                                     <% } else { %>
-                                        <a href="/event/review/like/<%= review._id %>" class="btn btn-outline-primary btn-sm">
+                                        <a href="/review/like/<%= review._id %>" class="btn btn-outline-primary btn-sm">
                                             Like <%= review.likes?.length %>
                                         </a>
                                     <% } %>
                                     <% if (review.reports.includes(user?._id)) { %>
-                                        <a href="/event/review/report/<%= review._id %>" class="btn btn-danger btn-sm">
+                                        <a href="/review/report/<%= review._id %>" class="btn btn-danger btn-sm">
                                             Reported 
                                         </a>
                                     <% } else { %>
-                                        <a href="/event/review/report/<%= review._id %>" class="btn btn-outline-danger btn-sm">
+                                        <a href="/review/report/<%= review._id %>" class="btn btn-outline-danger btn-sm">
                                             Report 
                                         </a>
                                     <% } %>                                    
@@ -252,7 +252,7 @@
                                         </div>
                                     <% } %>
                                     <% if(user?.role === "ORGANIZER" ) {%>
-                                        <form  action="/event/review/response/<%= review._id %>" method="post" autocomplete="off">
+                                        <form  action="/review/response/<%= review._id %>" method="post" autocomplete="off">
                                             <input  type="text" name="organizerResponse" class="form-control mb-2" placeholder="Write Your Response..." required >
                                             <button type="submit"  class="btn btn-outline-info btn-sm">Respond</button>
                                         </form>

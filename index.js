@@ -5,8 +5,10 @@ const app = express(); // Create Express application instance
 const cookieParser = require("cookie-parser"); 
 const mongoose = require("mongoose"); 
 const Event = require("./models/event"); 
+
 const userRoutes = require("./routes/user"); 
 const eventRoutes = require('./routes/event');
+const reviewRoutes = require("./routes/review");
 const {Auth} = require("./middleware/auth");
 
 const dotenv = require("dotenv"); // Load environment variables from a .env file
@@ -26,6 +28,7 @@ app.use(Auth("token"));
 // Route for handling user-related endpoints
 app.use("/user", userRoutes);
 app.use('/event',eventRoutes);
+app.use('/review',reviewRoutes);
 
 // Route for rendering the home page
 app.get("/", async (req, res) => {
