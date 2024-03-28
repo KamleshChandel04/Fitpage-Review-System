@@ -18,6 +18,7 @@ const handleCreateEvent = async (req, res) => {
 const handleGetEvent = async (req, res) => {
     const event = await Event.findById(req.params.id).populate("createdBy");
     const reviews = await Review.find({ eventId: req.params.id }).populate("createdBy");
+   
     return res.render("event", {
         user: req.user,
         event,
