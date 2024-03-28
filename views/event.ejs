@@ -31,14 +31,14 @@
                 </p>
 
                 <% if (event.registerUser.includes(user?._id)) { %>
-                <form action="/event/review/<%= event._id %>" method="post" autocomplete="off">
+                <form action="/event/review/<%= event._id %>" method="post">
                     <div class="my-3">
                         <input
                             type="text"
                             class="form-control"
                             id="content"
                             name="content"
-                            placeholder="Review here..." />
+                            placeholder="Review here..." required/>
                     </div>
                     <div class="my-3">
                         <label class="form-label" for="registrationRating"
@@ -49,7 +49,7 @@
                             id="registrationRating1"
                             name="registrationRating"
                             value="1"
-                            class="form-check-input" />
+                            class="form-check-input"/>
                         <label class="form-label" for="registrationRating1">1</label>
                         <input
                             type="radio"

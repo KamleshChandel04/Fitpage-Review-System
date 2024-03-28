@@ -11,15 +11,19 @@ const reviewSchema = new Schema(
         },
         registrationRating: {
             type: Number,
+            default : 0,
         },
         eventRating: {
             type: Number,
+            default : 0,
         },
         breakfastRating: {
             type: Number,
+            default : 0,
         },
         overallRating: {
             type: Number,
+            default : 0,
             
         },
         likes: {
