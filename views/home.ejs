@@ -8,8 +8,9 @@
         <%- include('./partials/nav') %>
 
         <div class="container my-4">
+            <% if (events.length) { %>
             <div class="d-flex flex-wrap" style="justify-content: space-around">
-
+                 
                 <%  
                     let startIndex = (currentPage - 1) * eventPerPage;
                     let endIndex = Math.min(startIndex + eventPerPage , events.length);
@@ -47,6 +48,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <% } %>
             </div>
             <div>
@@ -81,6 +83,7 @@
                 </ul>
             </nav>
             </div>
+            <% } %>
         </div>
         <%- include('./partials/scripts') %>
     </body>
