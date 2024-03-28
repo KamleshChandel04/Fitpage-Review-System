@@ -31,7 +31,7 @@
                 </p>
 
                 <% if (event.registerUser.includes(user?._id)) { %>
-                <form action="/review/<%= event._id %>" method="post">
+                <form action="/review/<%= event._id %>" method="post" autocomplete="off">
                     <div class="my-3">
                         <input
                             type="text"
