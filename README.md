@@ -2,7 +2,7 @@
 
 Review-System is a powerful Review and Rating platform built with EJS and Bootstrap for the frontend, and Node.js, Express, and MongoDB for the backend. It offers complete CRUD (Create, Read, Update, Delete) operations securely, along with a robust authentication system.
 
-<img src="/assets/images/Home%20Page%20After%20Login.png" alt="Review-System-Image" title="Home Page" width="300" height="200"/>
+![Review-System-Image](<img src="/assets/images/Home%20Page%20After%20Login.png" alt="Review-System-Image" title="Home Page" width="300" height="200"/>
 
 
 ## Table of Contents
