@@ -9,14 +9,15 @@ Review-System is a powerful Review and Rating platform built with EJS and Bootst
 1. [Introduction](#introduction)
 2. [Live Access(Deployed)](#live-access)
 3. [Features](#features)
-4. [Technologies Used](#technologies-used)
+4. [ScreenShots](#screenshots)
+5. [Technologies Used](#technologies-used)
 
 ## Introduction
 
 Review-System provides a seamless experience for users to submit reviews and ratings for events they've attended. It offers an extensive authentication system to ensure secure access and enables organizers to manage reviews effectively.
 
 ## Live-Access
-    You can access the live version of this project [here](https://fitpage-review-system.onrender.com/).
+    You can access the live version of this project https://fitpage-review-system.onrender.com/.
 
 ## Features
 
@@ -29,6 +30,9 @@ Review-System provides a seamless experience for users to submit reviews and rat
 - **Data Retrieval:** APIs for retrieving ratings and reviews, with support for pagination for efficient handling of large datasets.
 - **Password Security**: User passwords are securely stored in the database. Review-System employs salting and hashing techniques using the Crypto module to protect user data.
 - **Public Access**: Anyone can view and Events and read Reviews without the need to authenticate, promoting an open and accessible environment.
+
+## Screenshots
+   The assets folder houses comprehensive screenshot images showcasing the various features of the Review System application.
 
 ## Technologies Used
 
