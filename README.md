@@ -20,6 +20,8 @@ Review-System provides a seamless experience for users to submit reviews and rat
 - **Likes and Reports:** Users can like reviews and report inappropriate content, with automatic flagging for reviews reported more than 5 times.
 - **Organizer Responses:** Organizers have the ability to respond to reviews, fostering engagement and communication.
 - **Data Retrieval:** APIs for retrieving ratings and reviews, with support for pagination for efficient handling of large datasets.
+- **Password Security**: User passwords are securely stored in the database. Review-System employs salting and hashing techniques using the Crypto module to protect user data.
+- **Public Access**: Anyone can view and Events and read Reviews without the need to authenticate, promoting an open and accessible environment.
 
 ## Technologies Used
 
