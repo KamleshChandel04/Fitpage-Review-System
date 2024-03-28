@@ -2,11 +2,14 @@ const Event = require("../models/event");
 const Review = require("../models/review");
 
 const handleCreateEvent = async (req, res) => {
-    const { title, body } = req.body;
+    const { title, body ,date , venue  , time} = req.body;
     try {
         const event = await Event.create({
             title,
             body,
+            date,
+            time,
+            venue,
             createdBy: req.user._id,
         });
         return res.redirect(`/event/${event._id}`);

@@ -10,6 +10,19 @@ const eventSchema = new Schema(
             type: String,
             required: true,
         },
+        date: {
+            type : Date,
+            required : true,
+        },
+        time :{
+            type : String,
+            required : true,
+        },
+
+        venue : {
+            type : String,
+            required : true,
+        },
         createdBy: {
             type: Schema.Types.ObjectId,
             ref: "user",
