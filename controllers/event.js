@@ -54,7 +54,6 @@ const handleDeleteEvent = async (req, res) => {
 const handleRegisterEvent = async (req, res) => {
     try {
         const id = req.params.id;
-
         const event = await Event.findById(id);
         const index = event.registerUser.findIndex((id) => id === String(req.user._id));
 
@@ -64,7 +63,7 @@ const handleRegisterEvent = async (req, res) => {
             event.registerUser = event.registerUser.filter((id) => id !== String(req.user._id));
         }
         const updatedEvent = await Event.findByIdAndUpdate(id, event, { new: true });
-        return res.status(201).redirect("/");
+        return res.status(201).redirect(`/?page=${req.query.page}`);
     } catch (error) {
         console.log(error);
         return res.status(400).redirect("/");
